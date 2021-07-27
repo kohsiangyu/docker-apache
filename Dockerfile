@@ -5,6 +5,7 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN docker-php-ext-enable mysqli
 RUN pecl install redis-2.2.8 \
     && docker-php-ext-enable redis
+RUN apt-get install -y libpng-dev
 RUN docker-php-ext-install gd
-RUN mv /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enable/
+RUN mv /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/
 RUN mv "/usr/src/php/php.ini-development" "$PHP_INI_DIR/php.ini"
